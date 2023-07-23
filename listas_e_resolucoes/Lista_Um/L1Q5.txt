@@ -1,0 +1,32 @@
+Para provar que 1 + 2n < 3n para todo n > 2, vamos utilizar o método de indução matemática.
+
+Passo 1: Verificação da base da indução
+Vamos verificar a desigualdade para o valor mínimo de n, que é n = 3:
+
+Quando n = 3:
+1 + 2n = 1 + 2*3 = 7
+3n = 3*3 = 9
+
+Claramente, 7 < 9, portanto, a desigualdade é válida para n = 3.
+
+Passo 2: Suposição da indução
+Assumimos que a desigualdade é verdadeira para um certo valor k, ou seja, 1 + 2k < 3k.
+
+Passo 3: Passo da indução
+Agora, vamos mostrar que a desigualdade também é verdadeira para o valor k+1:
+
+Quando n = k+1:
+1 + 2n = 1 + 2*(k+1) = 1 + 2k + 2 = 3 + 2k
+
+Agora, vamos usar a suposição de indução (1 + 2k < 3k) para comparar com 3 + 2k:
+
+1 + 2k < 3k   (suposição de indução)
+3 + 2k < 3k + 3   (adicionando 3 aos dois lados)
+3 + 2k < 3(k + 1)   (fatorando 3 do lado direito)
+
+Portanto, para n = k+1, temos 1 + 2n < 3n.
+
+Passo 4: Conclusão
+Como a desigualdade é válida para n = 3 (base da indução) e mostramos que se for verdadeira para n = k, também será verdadeira para n = k+1 (passo da indução), podemos concluir que a desigualdade 1 + 2n < 3n é válida para todo n > 2.
+
+Ordem de complexidade: A prova utilizando indução matemática é um processo teórico e não envolve algoritmos ou laços. Portanto, a ordem de complexidade é irrelevante neste contexto.

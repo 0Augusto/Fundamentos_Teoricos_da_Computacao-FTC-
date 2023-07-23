@@ -1,0 +1,37 @@
+Para provar que (A ∩ B)' = A' U B', precisamos mostrar que todo elemento que pertence ao complemento da interseção de A e B também pertence à união dos complementos de A e B, e vice-versa.
+
+Vamos assumir um conjunto universo U e os conjuntos A e B, e provar a igualdade.
+
+Definições:
+- (A ∩ B)': O complemento da interseção de A e B.
+- A': O complemento de A.
+- B': O complemento de B.
+- A U B: A união de A e B.
+
+Para cada elemento x pertencente a (A ∩ B)', devemos mostrar que x também pertence a A' U B'.
+
+1. Prova de (A ∩ B)' ⊆ A' U B':
+   Seja x um elemento em (A ∩ B)'. Isso significa que x não pertence a A ∩ B, ou seja, x não está presente em ambos A e B ao mesmo tempo.
+
+   Agora, podemos dividir isso em dois casos:
+   - Caso 1: x não pertence a A: Nesse caso, x pertence a A', pois o complemento de A inclui exatamente os elementos que não estão em A.
+   - Caso 2: x não pertence a B: Nesse caso, x pertence a B', pois o complemento de B inclui exatamente os elementos que não estão em B.
+
+   Portanto, em ambos os casos, x pertence a A' ou B', ou seja, x pertence a A' U B'. Isso mostra que (A ∩ B)' ⊆ A' U B'.
+
+Agora, vamos mostrar que cada elemento x pertencente a A' U B' também pertence a (A ∩ B)':
+
+2. Prova de A' U B' ⊆ (A ∩ B)':
+   Seja x um elemento em A' U B'. Isso significa que x pertence a A' ou x pertence a B'.
+
+   Dividimos em dois casos novamente:
+   - Caso 1: x pertence a A': Nesse caso, x não pertence a A, o que implica que x não pertence à interseção A ∩ B.
+   - Caso 2: x pertence a B': Nesse caso, x não pertence a B, o que implica que x não pertence à interseção A ∩ B.
+
+   Em ambos os casos, x não pertence à interseção A ∩ B, ou seja, x pertence ao complemento da interseção (A ∩ B)'. Portanto, x pertence a (A ∩ B)'.
+
+   Isso mostra que A' U B' ⊆ (A ∩ B)'.
+
+Agora, como mostramos que (A ∩ B)' ⊆ A' U B' e A' U B' ⊆ (A ∩ B)', podemos concluir que (A ∩ B)' = A' U B'.
+
+Ordem de complexidade: A prova envolve operações básicas de conjuntos, como pertencer ou não a um conjunto, e operações de união e interseção de conjuntos. A ordem de complexidade para essas operações é geralmente O(n) ou O(m), onde n e m são os tamanhos dos conjuntos A e B, respectivamente. Em casos práticos, a complexidade é muitas vezes sublinear, dependendo da implementação das operações de conjunto.

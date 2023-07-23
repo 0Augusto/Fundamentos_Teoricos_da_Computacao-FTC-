@@ -1,0 +1,40 @@
+Para mostrar que (ba)+ (a*b* U a*) = (ba)* ba+ (b* U λ), precisamos provar que ambos os lados da equação são equivalentes, ou seja, representam o mesmo conjunto de strings.
+
+Vamos analisar cada lado da igualdade:
+
+Lado esquerdo: (ba)+ (a*b* U a*)
+- (ba)+ representa uma ou mais ocorrências da sequência "ba".
+- (a*b* U a*) representa qualquer string que começa com zero ou mais "a"s, seguido por zero ou mais "b"s OU apenas "a".
+
+Lado direito: (ba)* ba+ (b* U λ)
+- (ba)* representa zero ou mais ocorrências da sequência "ba".
+- ba+ representa uma ou mais ocorrências da sequência "ba".
+- (b* U λ) representa zero ou mais "b"s OU a string vazia (λ).
+
+Agora, vamos demonstrar que ambos os lados da equação são equivalentes:
+
+1. Mostrando que o lado esquerdo está contido no lado direito:
+   Vamos assumir que uma string s pertence ao lado esquerdo, ou seja, s é da forma (ba)+ ou s é da forma a*b* U a*.
+
+   - Caso 1: s é da forma (ba)+:
+     Nesse caso, s é composta por uma ou mais ocorrências de "ba". Podemos escrever s como (ba)k, onde k ≥ 1. Isso é equivalente a (ba)* ba+ (já que (ba)* representa zero ou mais ocorrências de "ba" e (ba)+ representa uma ou mais ocorrências de "ba").
+
+   - Caso 2: s é da forma a*b* U a*:
+     Nesse caso, s começa com zero ou mais "a"s, seguido por zero ou mais "b"s OU apenas "a". Podemos escrever s como a*bs, onde a* representa zero ou mais "a"s e b* representa zero ou mais "b"s. Isso é equivalente a (ba)* ba+ (já que (ba)* representa zero ou mais ocorrências de "ba" e ba+ representa uma ou mais ocorrências de "ba").
+
+   Portanto, qualquer string que pertence ao lado esquerdo também pertence ao lado direito.
+
+2. Mostrando que o lado direito está contido no lado esquerdo:
+   Vamos assumir que uma string t pertence ao lado direito, ou seja, t é da forma (ba)* ba+ OU t é da forma b* U λ.
+
+   - Caso 1: t é da forma (ba)* ba+:
+     Nesse caso, t é composta por zero ou mais ocorrências de "ba", seguido por uma ou mais ocorrências de "ba". Podemos escrever t como (ba)kba, onde k ≥ 0. Isso é equivalente a (ba)+, já que (ba)+ representa uma ou mais ocorrências de "ba".
+
+   - Caso 2: t é da forma b* U λ:
+     Nesse caso, t é composta por zero ou mais "b"s OU apenas a string vazia (λ). Podemos escrever t como bks, onde bk representa zero ou mais "b"s e s representa a string vazia (λ). Isso é equivalente a a*b* U a*, já que a*b* representa zero ou mais "a"s seguido por zero ou mais "b"s, e a* representa apenas "a".
+
+   Portanto, qualquer string que pertence ao lado direito também pertence ao lado esquerdo.
+
+Como mostramos que ambos os lados estão contidos um no outro, podemos concluir que (ba)+ (a*b* U a*) = (ba)* ba+ (b* U λ).
+
+Ordem de complexidade: A prova é uma análise teórica das propriedades das expressões regulares e conjuntos de strings, portanto, não envolve algoritmos nem laços. A ordem de complexidade é irrelevante neste contexto.

@@ -1,0 +1,37 @@
+Para mostrar que b+ (a*b* U λ) b = b (b*a* U λ) b+, precisamos provar que ambos os lados da igualdade representam o mesmo conjunto de strings.
+
+Vamos analisar cada lado da igualdade:
+
+Lado esquerdo: b+ (a*b* U λ) b
+- b+ representa uma ou mais ocorrências do caractere 'b'.
+- (a*b* U λ) representa qualquer string que começa com zero ou mais 'a's, seguido por zero ou mais 'b's OU a string vazia (λ).
+- b representa o caractere 'b'.
+
+Lado direito: b (b*a* U λ) b+
+- b representa o caractere 'b'.
+- (b*a* U λ) representa qualquer string que começa com um ou mais 'b's, seguido por zero ou mais 'a's OU a string vazia (λ).
+- b+ representa uma ou mais ocorrências do caractere 'b'.
+
+Agora, vamos demonstrar que ambos os lados da equação são equivalentes:
+
+1. Mostrando que o lado esquerdo está contido no lado direito:
+Vamos assumir que uma string s pertence ao lado esquerdo, ou seja, s é da forma b+ ou s é da forma a*b* U λ b.
+
+- Caso 1: s é da forma b+:
+Nesse caso, s é composta por uma ou mais ocorrências do caractere 'b'. Podemos escrever s como bkb, onde k ≥ 1. Isso é equivalente a b (b*a* U λ) b+ (já que (b*a* U λ) representa qualquer string que começa com um ou mais 'b's, seguido por zero ou mais 'a's OU a string vazia (λ), e b+ representa uma ou mais ocorrências do caractere 'b').
+
+- Caso 2: s é da forma a*b* U λ b:
+Nesse caso, s começa com zero ou mais 'a's, seguido por zero ou mais 'b's OU a string vazia (λ), e termina com um caractere 'b'. Podemos escrever s como bk, onde k é qualquer string que começa com zero ou mais 'a's, seguido por zero ou mais 'b's OU a string vazia (λ). Isso é equivalente a b (b*a* U λ) b+ (já que (b*a* U λ) representa qualquer string que começa com um ou mais 'b's, seguido por zero ou mais 'a's OU a string vazia (λ), e b+ representa uma ou mais ocorrências do caractere 'b').
+
+Portanto, qualquer string que pertence ao lado esquerdo também pertence ao lado direito.
+
+2. Mostrando que o lado direito está contido no lado esquerdo:
+Vamos assumir que uma string t pertence ao lado direito, ou seja, t é da forma b (b*a* U λ) b+.
+
+Nesse caso, t é composta por um caractere 'b', seguido por qualquer string que começa com um ou mais 'b's, seguido por zero ou mais 'a's OU a string vazia (λ), e termina com um caractere 'b'. Podemos escrever t como bkb, onde k é qualquer string que começa com um ou mais 'b's, seguido por zero ou mais 'a's OU a string vazia (λ). Isso é equivalente a b+ (já que b+ representa uma ou mais ocorrências do caractere 'b').
+
+Portanto, qualquer string que pertence ao lado direito também pertence ao lado esquerdo.
+
+Como mostramos que ambos os lados estão contidos um no outro, podemos concluir que b+ (a*b* U λ) b = b (b*a* U λ) b+.
+
+Ordem de complexidade: A prova é uma análise teórica das propriedades das expressões regulares e conjuntos de strings, portanto, não envolve algoritmos nem laços. A ordem de complexidade é irrelevante neste contexto.

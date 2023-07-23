@@ -1,0 +1,81 @@
+Para gerar o AFD (Autômato Finito Determinístico) equivalente para a expressão regular (ab)*ba, primeiro precisamos construir o NFA (Autômato Finito Não-Determinístico) correspondente e depois converter para um AFD.
+
+Vamos começar criando o NFA:
+
+1. Estado inicial: q0
+2. Estado para reconhecer a sequência "ab": q1
+3. Estado para reconhecer a sequência "ba": q2 (estado final)
+
+Transições do NFA:
+
+1. De q0 para q1 com "a": Representa a transição para o estado q1 ao encontrar o primeiro "a".
+2. De q1 para q1 com "b": Representa a possibilidade de ocorrer a sequência "ab" novamente.
+3. De q1 para q2 com "a": Representa a transição para o estado final q2 ao encontrar "a" após a sequência "ab".
+
+Aqui está o NFA completo em forma de tabela:
+
+```
+| Estado Atual | Próximo Estado (a) | Próximo Estado (b) |
+|--------------|--------------------|--------------------|
+|     q0       |       q1           |       -            |
+|     q1       |       q1           |       q2           |
+|     q2       |       -            |       -            |
+```
+
+Agora, vamos converter esse NFA em um AFD usando o método de Subconjuntos:
+
+1. Criar um novo estado inicial (q0) que será um conjunto dos estados alcançáveis a partir do estado inicial do NFA (q0).
+2. Para cada conjunto de estados alcançável por uma transição a partir de um estado em q0, faça um novo estado do AFD.
+3. Repita o passo 2 até que não haja novos estados a serem criados.
+
+Vamos construir o AFD a partir do NFA:
+
+1. Estado inicial: q0 (conjunto {q0})
+2. Novo estado para reconhecer a sequência "a": q1 (conjunto {q1})
+3. Novo estado para reconhecer a sequência "ab": q2 (conjunto {q1, q2})
+4. Novo estado para reconhecer a sequência "aba": q3 (conjunto {q1, q2, q3})
+5. Novo estado para reconhecer a sequência "abab": q4 (conjunto {q1, q2, q4})
+6. Novo estado para reconhecer a sequência "ababa": q5 (conjunto {q1, q2, q5})
+7. Estado final: q6 (conjunto {q2})
+
+Transições do AFD:
+
+1. De q0 para q1 com "a": Representa a transição para o estado q1 (conjunto {q1}) ao encontrar o primeiro "a".
+2. De q1 para q2 com "b": Representa a transição para o estado q2 (conjunto {q1, q2}) ao encontrar "b" após o "a".
+3. De q2 para q3 com "a": Representa a transição para o estado q3 (conjunto {q1, q2, q3}) ao encontrar "a" após "ab".
+4. De q2 para q4 com "b": Representa a transição para o estado q4 (conjunto {q1, q2, q4}) ao encontrar "b" após "ab".
+5. De q3 para q5 com "b": Representa a transição para o estado q5 (conjunto {q1, q2, q5}) ao encontrar "b" após "aba".
+6. De q4 para q2 com "a": Representa a transição para o estado q2 (conjunto {q1, q2}) ao encontrar "a" após "abab".
+7. De q4 para q6 com "b": Representa a transição para o estado final q6 (conjunto {q2}) ao encontrar "b" após "abab".
+8. De q5 para q2 com "a": Representa a transição para o estado q2 (conjunto {q1, q2}) ao encontrar "a" após "ababa".
+9. De q5 para q6 com "b": Representa a transição para o estado final q6 (conjunto {q2}) ao encontrar "b" após "ababa".
+10. De q6 para q6 com "a" ou "b": Representa a transição para o estado final q6 (conjunto {q2}) ao encontrar "a" ou "b" após "ba".
+
+Aqui está o AFD completo em forma de tabela:
+
+```
+| Estado Atual | Próximo Estado (a) | Próximo Estado (b) |
+|--------------|--------------------|--------------------|
+|     q0       |       q1           |       -            |
+|     q1       |       -            |       q2           |
+|     q2       |       q3           |       q4           |
+|     q3       |       q5           |       -            |
+|     q4       |       q2           |       q6           |
+|     q5       |       q2           |       q6           |
+|     q6       |       q6           |       q6           |
+```
+
+Aqui está o AFD em forma de diagrama:
+
+```
+       a          b
+     -----> q1 -----> q2 ------> q3
+     |                           |
+     |                           v
+     |                          q5
+     |                           |
+     |                           v
+     +-----> q4 ------------> q6 <--
+```
+
+Neste AFD, o estado q0 é o estado inicial, e o estado q6 é o estado final.

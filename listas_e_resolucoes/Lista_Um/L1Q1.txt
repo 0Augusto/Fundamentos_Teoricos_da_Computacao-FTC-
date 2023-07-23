@@ -1,0 +1,76 @@
+Para cada uma das três condições solicitadas, vamos fornecer uma função que atenda a essas propriedades. Vamos escrever as funções em linguagem C, comentando o código conforme necessário.
+
+1. Função total e injetora, mas não sobrejetora:
+   - Uma função é total quando está definida para todos os elementos do domínio.
+   - Uma função é injetora quando cada valor no contradomínio é mapeado para por, no máximo, um valor do domínio.
+   - Uma função não é sobrejetora quando existem elementos no contradomínio que não são mapeados por nenhum elemento do domínio.
+
+```c
+#include <stdio.h>
+
+// Função total e injetora, mas não sobrejetora: f(x) = 2x
+int functionTotalInjective(int x) {
+    return 2 * x;
+}
+
+int main() {
+    int input = 5;
+    int result = functionTotalInjective(input);
+    printf("f(%d) = %d\n", input, result); // f(5) = 10
+    return 0;
+}
+```
+
+Nesta função, a cada valor de `x`, ela retorna o dobro desse valor. A função é total e injetora porque está definida para todos os valores inteiros e mapeia cada valor de `x` a um único valor de saída. No entanto, não é sobrejetora, pois, por exemplo, não existe nenhum valor de `x` que mapeie para 3, 5 ou outros números ímpares.
+
+Ordem de complexidade: A função é uma função linear, portanto, a ordem de complexidade é O(1).
+
+2. Função total e sobrejetora, mas não injetora:
+   - Uma função é total quando está definida para todos os elementos do domínio.
+   - Uma função é sobrejetora quando cada valor no contradomínio é mapeado por pelo menos um valor do domínio.
+   - Uma função não é injetora quando existem elementos distintos no domínio que são mapeados para o mesmo valor no contradomínio.
+
+```c
+#include <stdio.h>
+
+// Função total e sobrejetora, mas não injetora: f(x) = x % 3
+int functionTotalSurjective(int x) {
+    return x % 3;
+}
+
+int main() {
+    int input = 5;
+    int result = functionTotalSurjective(input);
+    printf("f(%d) = %d\n", input, result); // f(5) = 2
+    return 0;
+}
+```
+
+Nesta função, a cada valor de `x`, ela retorna o resto da divisão de `x` por 3. A função é total e sobrejetora, pois está definida para todos os valores inteiros e cobre todos os possíveis valores de saída (0, 1, 2). No entanto, não é injetora, pois vários valores de `x` diferentes podem ter o mesmo resultado ao serem divididos por 3 (por exemplo, f(5) = f(8) = 2).
+
+Ordem de complexidade: A função é uma função linear, portanto, a ordem de complexidade é O(1).
+
+3. Função não total, mas injetora e sobrejetora:
+   - Uma função não é total quando não está definida para todos os elementos do domínio.
+   - Uma função é injetora quando cada valor no contradomínio é mapeado para por, no máximo, um valor do domínio.
+   - Uma função é sobrejetora quando cada valor no contradomínio é mapeado por pelo menos um valor do domínio.
+
+```c
+#include <stdio.h>
+
+// Função não total, mas injetora e sobrejetora: f(x) = |x|
+unsigned int functionInjectiveSurjective(int x) {
+    return (x < 0) ? -x : x;
+}
+
+int main() {
+    int input = -3;
+    unsigned int result = functionInjectiveSurjective(input);
+    printf("f(%d) = %u\n", input, result); // f(-3) = 3
+    return 0;
+}
+```
+
+Nesta função, a cada valor de `x`, ela retorna o valor absoluto de `x`. A função é injetora e sobrejetora, pois para cada valor de saída (número positivo), há apenas um valor de entrada correspondente que mapeia para esse valor. Além disso, cada valor de saída é mapeado por pelo menos um valor do domínio. No entanto, a função não é total, pois não está definida para todos os valores inteiros.
+
+Ordem de complexidade: A função é uma função linear, portanto, a ordem de complexidade é O(1).
